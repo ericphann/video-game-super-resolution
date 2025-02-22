@@ -1,3 +1,16 @@
+# Ignore entire QRISP directory contents
+QRISP_EDA/data/QRISP/
+QRISP_EDA/data/QRISP/**/*
+
+QRISP/data_extraction/archive/
+QRISP/data_extraction/archive/**/*
+
+# Ignore all compressed and zip-related files
+*.zip
+*.z*
+*.rar
+*.7z
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
