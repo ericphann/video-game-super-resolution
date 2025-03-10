@@ -1,6 +1,12 @@
 # 🎮 Video Game Super-Resolution (VGSR) 🖥️
 Project for DSBA 6165: Artificial Intelligence and Deep Learning
 
+## Team
+
+- Eric Phann
+- Samantha Michael
+- Kidus Kidane
+
 ## Overview
 
 This project explores deep learning approaches to image super-resolution specifically for video game imagery. Rather than creating an end-user product, we aim to advance research in this field by comparing traditional convolutional and GAN-based architectures with newer transformer models. Inspired by technologies like NVIDIA's DLSS, our research investigates which techniques best preserve the unique visual characteristics of video games when upscaling from lower to higher resolutions. Our findings could inform future development of more accessible super-resolution solutions for game graphics.
@@ -43,6 +49,58 @@ Other datasets we explored include:
    
 Our dataset selection process and comparative analysis can be found in the `EDA/Data Collection & Analysis.pdf` file.
 
+### Accessing Our Dataset
+We've made our processed dataset available on Hugging Face for easy access and reproducibility. You can find it at: [ericphann/video-game-super-resolution](https://huggingface.co/datasets/ericphann/video-game-super-resolution/tree/main)
+
+The dataset is organized in the following structure:
+- `train-lr`: Low-resolution training images
+- `train-hr`: High-resolution training images
+- `validation-lr`: Low-resolution validation images
+- `validation-hr`: High-resolution validation images
+- `test-lr`: Low-resolution test images
+- `test-hr`: High-resolution test images
+
+#### Prerequisites
+Install the required packages:
+```
+bash
+pip install datasets huggingface-hub Pillow
+```
+To import the dataset in your code, use the following snippet:
+```
+from datasets import load_dataset
+import os
+
+# Load the dataset
+dataset = load_dataset("ericphann/video-game-super-resolution")
+
+# If you need to process the paired LR-HR images manually:
+from PIL import Image
+import glob
+
+# Example: Loading training pairs
+def load_image_pairs(base_path, split="train"):
+    lr_path = os.path.join(base_path, f"{split}-lr")
+    hr_path = os.path.join(base_path, f"{split}-hr")
+    
+    lr_files = sorted(glob.glob(os.path.join(lr_path, "*.png")))
+    hr_files = sorted(glob.glob(os.path.join(hr_path, "*.png")))
+    
+    pairs = []
+    for lr_file, hr_file in zip(lr_files, hr_files):
+        lr_img = Image.open(lr_file)
+        hr_img = Image.open(hr_file)
+        pairs.append((lr_img, hr_img))
+    
+    return pairs
+
+# Usage example
+training_pairs = load_image_pairs("path/to/downloaded/dataset", "train")
+validation_pairs = load_image_pairs("path/to/downloaded/dataset", "validation")
+```
+
+This dataset contains our preprocessed pairs of low-resolution and high-resolution game images, ready for training super-resolution models.
+
 ## Development Timeline
 
 1. Review and submit EDA notebooks
@@ -80,9 +138,3 @@ We welcome contributions in the following areas:
 - [SRGAN (2017)](https://arxiv.org/abs/1609.04802)
 - [ESRGAN (2018)](https://arxiv.org/abs/1809.00219)
 - [Open Source SRCNN Implementation](https://github.com/yjn870/SRCNN-pytorch)
-
-## Team
-
-- Eric Phann
-- Samantha Michael
-- Kidus Kidane
