@@ -21,14 +21,14 @@ It is designed to be run on an **HPC cluster** with **SLURM** for job scheduling
 ### Generator Structure
 The Generator network is based on deep residual learning with skip connections to enhance fine detail recovery.
 <div align="center">
-<img src="results/Generator.png" alt="Generator Structure" width="200"/>
+<img src="results/Generator.png" alt="Generator Structure" width="250"/>
 </div>
 
 ### Discriminator Structure
 The Discriminator network classifies between real and generated images using stacked convolutional layers followed by dense layers.
 
 <div align="center">
-<img src="results/Discriminator.png" alt="Discriminator Structure" width="400"/>
+<img src="results/Discriminator.png" alt="Discriminator Structure" width="450"/>
 </div>
 
 ## Repository Structure
@@ -79,11 +79,6 @@ python optuna_tuner_full.py
 ```
 
 **Evaluate model:**
-
-```bash
-python evaluate_srgan.py --generator_path /path/to/model.h5 --data_dir /path/to/dataset
-```
-**Evaluate model:**
 ```bash
 python evaluate_srgan.py --generator_path /path/to/model.h5 --data_dir /path/to/dataset
 ```
@@ -103,6 +98,7 @@ python evaluate_srgan.py --generator_path /path/to/model.h5 --data_dir /path/to/
 ---
 
 ## Final SRGAN with Optuna Tuning
+
 <table>
   <tr>
     <td>
@@ -119,7 +115,6 @@ python evaluate_srgan.py --generator_path /path/to/model.h5 --data_dir /path/to/
     </td>
   </tr>
 </table>
-
 
 ### 📷 Example: Final Outputs
 ![Final SRGAN Output](results/example_5.png)
