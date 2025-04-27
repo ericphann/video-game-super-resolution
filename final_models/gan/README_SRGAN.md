@@ -16,6 +16,21 @@ It is designed to be run on an **HPC cluster** with **SLURM** for job scheduling
 
 ---
 
+## 🏗️ Model Architecture
+---
+### Generator Structure
+The Generator network is based on deep residual learning with skip connections to enhance fine detail recovery.
+<div align="center">
+<img src="results/Generator.png" alt="Generator Structure" width="200"/>
+</div>
+
+### Discriminator Structure
+The Discriminator network classifies between real and generated images using stacked convolutional layers followed by dense layers.
+
+<div align="center">
+<img src="results/Discriminator.png" alt="Discriminator Structure" width="400"/>
+</div>
+
 ## Repository Structure
 ```
 ├── gan_model.py          # SRGAN Generator and Discriminator architectures, training loop
@@ -68,7 +83,59 @@ python optuna_tuner_full.py
 ```bash
 python evaluate_srgan.py --generator_path /path/to/model.h5 --data_dir /path/to/dataset
 ```
+**Evaluate model:**
+```bash
+python evaluate_srgan.py --generator_path /path/to/model.h5 --data_dir /path/to/dataset
+```
+---
 
+# 📈 Results
+
+## Baseline SRGAN Training
+- **Epochs**: 500
+- **Observations**:
+  - No weight initialization led to slow convergence.
+  - Generator outputs appeared **lighter** than the ground truth images.
+
+### 📷 Example: Baseline Outputs
+![Baseline SRGAN Output](results/baseline.png)
+![Generator and Discriminator Loss Curves](results/Loss_Curves.png)
+---
+
+## Final SRGAN with Optuna Tuning
+<table>
+  <tr>
+    <td>
+<ul>
+<li><strong>Trials</strong>: 10 Optuna trials</li>
+<li><strong>Best Trial</strong>: Trial #7</li>
+<li><strong>Best PSNR</strong>: 19.70 dB</li>
+<li><strong>Architecture</strong>: 8 residual blocks, 96 filters, dropout rate of 0.297</li>
+<li><strong>Post-processing</strong>: Color correction applied after upscaling</li>
+</ul>
+    </td>
+    <td align="center">
+      <img src="results/Best_Optuna_Trial.png" alt="Best Trial" width="500"/>
+    </td>
+  </tr>
+</table>
+
+
+### 📷 Example: Final Outputs
+![Final SRGAN Output](results/example_5.png)
+- *(SRGAN output appears brighter compared to the input and ground-truth HR images.)*
+- *(Noticeable improvements in detail and color after post-processing and tuning.)*
+
+### Results Final
+![Best Trial](results/Results.png)
+
+---
+
+# 🎯 Learnings and Insights
+- Weight initialization significantly affects GAN training stability and convergence speed.
+- Color correction can noticeably improve perceived output quality.
+- Optuna tuning helped balance model complexity and performance.
+- Future improvements could include expanding the generator to ESRGAN architecture (+ more residual blocks).
 ---
 
 ## Acknowledgements
