@@ -17,7 +17,6 @@ It is designed to be run on an **HPC cluster** with **SLURM** for job scheduling
 ---
 
 ## 🏗️ Model Architecture
----
 ### Generator Structure
 The Generator network is based on deep residual learning with skip connections to enhance fine detail recovery.
 <div align="center">
@@ -88,6 +87,7 @@ python evaluate_srgan.py --generator_path /path/to/model.h5 --data_dir /path/to/
 
 ## Baseline SRGAN Training
 - **Epochs**: 500
+- PSNR: 17.92dB
 - **Observations**:
   - No weight initialization led to slow convergence.
   - Generator outputs appeared **lighter** than the ground truth images.
@@ -118,19 +118,20 @@ python evaluate_srgan.py --generator_path /path/to/model.h5 --data_dir /path/to/
 
 ### 📷 Example: Final Outputs
 ![Final SRGAN Output](results/example_5.png)
-- *(SRGAN output appears brighter compared to the input and ground-truth HR images.)*
-- *(Noticeable improvements in detail and color after post-processing and tuning.)*
+- SRGAN output appears brighter compared to the input and ground-truth HR images.
+- Noticeable improvements in detail and color after post-processing and tuning.
 
 ### Results Final
 ![Best Trial](results/Results.png)
 
+- Modest increase in the PSNR of approximately 1.8 dB represents a meaningful enhancement in reconstruction quality, with visible reductions in artifacts and improved detail preservation. While state of the art models can achieve PSNR values in the 25-30 dB range, our current results are promising for a relatively compact model architecture trained on a limited dataset.
 ---
 
 # 🎯 Learnings and Insights
 - Weight initialization significantly affects GAN training stability and convergence speed.
 - Color correction can noticeably improve perceived output quality.
 - Optuna tuning helped balance model complexity and performance.
-- Future improvements could include expanding the generator to ESRGAN architecture (+ more residual blocks).
+- Future improvements include expanding the generator to ESRGAN architecture (add more residual blocks) and focus on further model refinements and training optimizations to push performance beyond the 20 dB threshold.
 ---
 
 ## Acknowledgements
