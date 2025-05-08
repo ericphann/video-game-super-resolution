@@ -10,8 +10,8 @@
 <br>
 
 <div align="center">
-  <a href="https://github.com/dsba6010-llm-applications/AgenticRAG-CharlotteEatz/blob/main/docs/Final%20Project%20Report.pdf">📋 Final Report</a> |
-  <a href="https://dinebot-uncc-dsba.streamlit.app/">🧑‍🏫 Presentation</a>
+  <a href="https://github.com/ericphann/video-game-super-resolution/blob/main/Final%20Report%20-%20Phann%2C%20Michael%2C%20Kidane.pdf">📋 Final Report</a> |
+  <a href="https://github.com/ericphann/video-game-super-resolution/blob/main/Final%20Presentation%20-%20Phann%2C%20Kidane%2C%20Michael.pdf">🧑‍🏫 Presentation</a>
 </div>
 <br>
 
