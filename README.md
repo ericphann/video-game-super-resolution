@@ -25,6 +25,13 @@ Modern video games are increasingly demanding on hardware. Technologies like Dee
 
 This project explores deep learning approaches to image super-resolution specifically for video game images. Inspired by technologies like NVIDIA's DLSS, our research investigates which techniques best preserve the unique visual characteristics of video games when upscaling from lower to higher resolutions. Our findings could inform future development of more accessible super-resolution solutions for game graphics.
 
+
+## Dataset
+After thorough evaluation of multiple datasets (documented in our EDA folder), we selected the [**Super Resolution in Video Games Dataset (SRVG)**](https://www.kaggle.com/competitions/super-resolution-in-video-games/data) as our primary training data. This dataset consists of paired 270p and 1080p images from Unreal Engine projects, providing ideal content for training models specifically for game graphics upscaling.
+
+We've processed and made this dataset available on Hugging Face at [**ericphann/video-game-super-resolution**](https://huggingface.co/datasets/ericphann/video-game-super-resolution/tree/main).
+
+
 ## Methods
 1. **Convolutional Neural Networks (CNNs)**
    - Building upon pioneering work like SRCNN and VDSR
@@ -35,13 +42,14 @@ This project explores deep learning approaches to image super-resolution specifi
    - Emphasis on perceptual quality and realistic textures
 
 3. **Transformers**
-   - Exploring state of the art architectures like Swin2SR and SwinIR
+   - Exploring novel architectures like Swin2SR and SwinIR
    - Investigating attention mechanisms for detail preservation
 
-## Dataset
-After thorough evaluation of multiple datasets (documented in our EDA folder), we selected the [**Super Resolution in Video Games Dataset (SRVG)**](https://www.kaggle.com/competitions/super-resolution-in-video-games/data) as our primary training data. This dataset consists of paired 270p and 1080p images from Unreal Engine projects, providing ideal content for training models specifically for game graphics upscaling.
 
-We've processed and made this dataset available on Hugging Face at [**ericphann/video-game-super-resolution**](https://huggingface.co/datasets/ericphann/video-game-super-resolution/tree/main).
+## Conclusion
+We built upon existing literature and research by successfully reproducing and adapting CNNs, GANs, and transformers for the specific task of video game image super-resolution. This was done through various approaches such as hyperparameter tuning, tweaking model architectures, and fine-tuning on the SRVG dataset.
+
+While state-of-the-art, peak signal-to-noise ratio (PSNR) benchmarks were not reached, the results demonstrate the effectiveness of architectural tuning and optimization when applied to real-world datasets under constrained resources.
 
 ## References
 Conde, M. V., Choi, U.-J., Burchi, M., & Timofte, R. (2022, September 22). Swin2SR: SwinV2 transformer for compressed image super-resolution and restoration. arXiv.org. https://arxiv.org/abs/2209.11345  
