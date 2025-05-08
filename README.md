@@ -1,11 +1,24 @@
-# 🎮 Video Game Super-Resolution (VGSR) 🖥️
-Project for DSBA 6165: Artificial Intelligence and Deep Learning
+<div align="center">
+  <h1>🎮 Video Game Super-Resolution 🔍</h1>
+</div>
 
-## Team
+<div align="center"><b>Eric Phann</b> | <b>Samantha Michael</b> | <b>Kidus Kidane</b></div>
 
-- Eric Phann
-- Samantha Michael
-- Kidus Kidane
+<div align="center">DSBA 6165: Artificial Intelligence and Deep Learning</div>
+
+<div align="center">Dr. Archit Parnami, Spring 2025</div>
+<br>
+
+<div align="center">
+  <a href="https://github.com/dsba6010-llm-applications/AgenticRAG-CharlotteEatz/blob/main/docs/Final%20Project%20Report.pdf">📋 Final Report</a> |
+  <a href="https://dinebot-uncc-dsba.streamlit.app/">🧑‍🏫 Presentation</a>
+</div>
+<br>
+
+<p align="center">
+  <img width="900" height="300" src="https://raw.githubusercontent.com/ericphann/video-game-super-resolution/refs/heads/main/Example.png">
+</p>
+
 
 ## Overview
 
